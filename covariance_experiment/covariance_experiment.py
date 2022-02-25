@@ -154,6 +154,24 @@ for min_distance in [1, 10, 20, 30]:
                     test_command += f' --pos_z_axis_multiplier {z_multiplier}'
                     test_list.append(test_command)
 
+
+### best setting
+test_command  = 'python3 rtabmap-db-covariance-modifier.py ROT_AND_POS_ON_DISTANCE_TO_OBJECT'
+test_command += ' --distance_to_object_min_threshold 1'
+test_command += ' --distance_to_object_max_threshold 31'
+test_command += ' --pos_mapped_value_min 10000'
+test_command += ' --pos_mapped_value_max 100'
+test_command += ' --pos_mapped_value_under_min_distance_threshold 10000'
+test_command += ' --pos_mapped_value_above_max_distance_threshold 100'
+test_command += ' --rot_mapped_value_min 0.0001'
+test_command += ' --rot_mapped_value_max 0.0001'
+test_command += ' --rot_mapped_value_under_min_distance_threshold 0.0001'
+test_command += ' --rot_mapped_value_above_max_distance_threshold 0.0001'
+test_command += f' --pos_y_axis_multiplier 100'
+test_command += f' --pos_z_axis_multiplier 0.01'
+test_command += f' --odometry_multiplier 2'
+test_list.append(test_command)
+
 print('total number of tests: ' + str(len(test_list)) )
 
 # # loop that runs tests
